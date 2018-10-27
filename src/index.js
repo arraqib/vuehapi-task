@@ -1,17 +1,17 @@
-const Hapi     = require('hapi');
-const routes   = require('./routes');
+const Hapi = require("hapi");
+const routes = require("./routes");
 
-require('./utils/database');
+require("./utils/database");
 
 const server = Hapi.server({
   port: 3000,
-  host: 'localhost',
+  host: "localhost",
   routes: { cors: true }
 });
 
 const startServer = async () => {
   try {
-    routes.forEach((route)=>{
+    routes.forEach(route => {
       server.route(route);
     });
 

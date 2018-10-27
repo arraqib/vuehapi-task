@@ -1,12 +1,11 @@
-const {Task} = require('../models');
-const Boom = require('boom');
+const { Task } = require("../models");
+const Boom = require("boom");
 
 const taskApi = {
   all: {
     async handler(request, h) {
       try {
-        return await Task.find({}).sort({ createdAt: 'desc' });
-
+        return await Task.find({}).sort({ createdAt: "desc" });
       } catch (err) {
         Boom.badImplementation(err);
       }
@@ -22,7 +21,6 @@ const taskApi = {
         task.save();
 
         return { message: "Task created successfully", task };
-
       } catch (err) {
         Boom.badImplementation(err);
       }
@@ -34,11 +32,10 @@ const taskApi = {
         const task = request.params.task;
 
         return await Task.findOne({
-            _id: task.id
+          _id: task.id
         });
-
       } catch (err) {
-          Boom.badImplementation(err);
+        Boom.badImplementation(err);
       }
     }
   },
@@ -49,23 +46,21 @@ const taskApi = {
         const updates = request.payload;
 
         // todo
-        return { success: true, message: 'Successfully updated task!' };
-
+        return { success: true, message: "Successfully updated task!" };
       } catch (err) {
-          Boom.badImplementation(err);
+        Boom.badImplementation(err);
       }
     }
   },
   remove: {
-    async handler(request, h){
-        try {
-            const task = await Task.findById(request.params.task).remove();
+    async handler(request, h) {
+      try {
+        const task = await Task.findById(request.params.task).remove();
 
-            return { success: true, message: 'Successfully removed task!' };
-
-        } catch (err) {
-            Boom.badImplementation(err);
-        }
+        return { success: true, message: "Successfully removed task!" };
+      } catch (err) {
+        Boom.badImplementation(err);
+      }
     }
   }
 };
