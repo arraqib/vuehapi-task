@@ -1,0 +1,17 @@
+{
+    "name": "vuehapi-task",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon index.js",
+        "db:seed": "node utils/seed.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "Apache",
+    "dependencies": {
+        "hapi": "^17.6.0",
+        "mongoose": "^5.3.7"
+    }
+}
