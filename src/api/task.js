@@ -30,9 +30,8 @@ const taskApi = {
     async handler(request, h) {
       try {
         const task = request.params.task;
-
         return await Task.findOne({
-          _id: task.id
+          _id: task
         });
       } catch (err) {
         Boom.badImplementation(err);
