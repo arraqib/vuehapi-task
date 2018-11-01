@@ -1,4 +1,4 @@
-# vue-hapi-task-app
+# vue-app
 
 ## Project setup
 ```
